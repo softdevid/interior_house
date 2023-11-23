@@ -1,11 +1,8 @@
-import React from 'react';
+import Main from "@/Layouts/Home/Main";
+import React from "react";
 
 const Index = () => {
-    return(
-        <>
-        
-        </>
-    );
+    return <></>;
 };
-Index.layout = (page) => <Main children={page}/>
+Index.layout = (page) => <Main children={page} />;
 export default Index;
