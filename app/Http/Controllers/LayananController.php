@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Layanan;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class LayananController extends Controller
 {
@@ -12,7 +13,9 @@ class LayananController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('Admin/Layanan/Index', [
+            'title' => 'Layanan',
+        ]);
     }
 
     /**
