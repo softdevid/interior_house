@@ -10,7 +10,7 @@ class HomeController extends Controller
     public function index()
     {
         return Inertia::render("Home/Index", [
-            "title" => "Selamat Datang | Silver World Pictures",
+            "title" => "Selamat Datang | Interior House",
         ]);
     }
 }
