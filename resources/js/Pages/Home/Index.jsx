@@ -167,13 +167,13 @@ const Index = ({ title }) => {
                     data-aos-duration="1000"
                     data-aos-delay="200"
                 >
-                    <div className="flex justify-center items-center">
+                    {/* <div className="flex justify-center items-center">
                         <img
                             className="w-auto h-32 sm:h-40"
                             src="https://res.cloudinary.com/dnmkw2715/image/upload/v1687844459/wisata_banyumas/icons/Universitas_Amikom_Purwokerto_pwpgiq.png"
                             alt="Universitas Amikom Purwokerto"
                         />
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </>
