@@ -17,7 +17,7 @@ const Main = ({ children }) => {
             <AdminContext.Provider value={appContextValue}>
                 <Navbar />
                 <Sidebar />
-                <div className="p-4 md:ml-64 lg:mt-12">{children}</div>
+                <div className="p-4 mt-12 md:ml-64 lg:mt-12">{children}</div>
             </AdminContext.Provider>
         </>
     )

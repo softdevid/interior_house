@@ -28,7 +28,7 @@ const Navbar = () => {
                         </button>
                         <Link href={`/admin/dashboard`} as="button" className="flex ml-2 md:mr-24">
                             <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white focus:outline-none">
-                                Admin Sekolah
+                                Admin
                             </span>
                         </Link>
                     </div>

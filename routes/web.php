@@ -44,11 +44,12 @@ Route::prefix('/tentang')->group(function () {
     Route::get('/profil', [HomeController::class, "tentang_profil"]);
 });
 
-Route::get('/admin/dashboard', [AdminController::class, 'index']);
+// Route::get('/admin/dashboard', [AdminController::class, 'index']);
 Route::group([
     'prefix' => '/admin',
     // 'middleware' => ['auth']
 ], function() {
+    Route::get('dashboard', [AdminController::class, 'index']);
     Route::resource('profil', ProfilController::class);
     Route::resource('layanan', LayananController::class);
 });

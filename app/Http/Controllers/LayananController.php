@@ -18,6 +18,10 @@ class LayananController extends Controller
         ]);
     }
 
+    public function data() {
+        return $data = Layanan::get();
+    }
+
     /**
      * Show the form for creating a new resource.
      */

@@ -5,10 +5,13 @@ import {
     ComputerDesktopIcon,
     ListBulletIcon,
     NewspaperIcon,
+    PhoneIcon,
+    PhotoIcon,
     TrophyIcon,
     UserCircleIcon,
     UserGroupIcon,
     UsersIcon,
+    VideoCameraIcon,
 } from "@heroicons/react/20/solid";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { Link } from "@inertiajs/react";
@@ -33,6 +36,21 @@ const Sidebar = () => {
             name: "Layanan",
             href: `/admin/layanan`,
             icon: ListBulletIcon,
+        },
+        {
+            name: "Kontak",
+            href: `/admin/kontak`,
+            icon: PhoneIcon,
+        },
+        {
+            name: "Sosial Media",
+            href: `/admin/sosmed`,
+            icon: VideoCameraIcon,
+        },
+        {
+            name: "Banner slider",
+            href: `/admin/banner`,
+            icon: PhotoIcon,
         },
     ];
 

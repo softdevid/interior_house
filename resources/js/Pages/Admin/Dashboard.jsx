@@ -1,9 +1,16 @@
 import Main from "@/Layouts/Admin/Main";
 
-const Dashboard = () => {
+const Dashboard = ({ title }) => {
     return (
         <>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab minima esse blanditiis tempore aspernatur laboriosam numquam sint totam deserunt vero.
+            <h1 className="text-xl">{title}</h1>
+            <div className="grid grid-cols-4 gap-2">
+                <div className="p-2 border">lorem</div>
+                <div className="p-2 border">lorem</div>
+                <div className="p-2 border">lorem</div>
+                <div className="p-2 border">lorem</div>
+
+            </div>
         </>
     )
 }

@@ -1,4 +1,4 @@
-import Main from "@/Layouts/home/Main";
+import Main from "@/Layouts/Home/Main";
 import { Head, Link } from "@inertiajs/react";
 import React, { useState } from "react";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";

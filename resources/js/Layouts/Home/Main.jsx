@@ -11,7 +11,7 @@ const Main = ({ children }) => {
             <ScrollToTopButton />
             <Footer />
         </>
-    );
-};
+    )
+}
 
 export default Main;
