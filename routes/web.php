@@ -40,6 +40,7 @@ Route::get('/dashboard', function () {
 // });
 
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/layanan', [HomeController::class, 'layanan']);
 Route::prefix('/tentang')->group(function () {
     Route::get('/profil', [HomeController::class, "tentang_profil"]);
 });
@@ -48,7 +49,7 @@ Route::prefix('/tentang')->group(function () {
 Route::group([
     'prefix' => '/admin',
     // 'middleware' => ['auth']
-], function() {
+], function () {
     Route::get('dashboard', [AdminController::class, 'index']);
     Route::resource('profil', ProfilController::class);
     Route::resource('layanan', LayananController::class);

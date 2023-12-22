@@ -13,10 +13,10 @@ export default function Navbar() {
 
     const links = [
         { href: "/profil", label: "Tentang Kami" },
-        { href: "/tim", label: "Tentang Tim" },
-        { href: "/fase-kerja", label: "Fase Kerja" },
-        { href: "/lingkup-kerja", label: "Lingkup Pekerjaan" },
-        { href: "/ruang-pertanyaan", label: "Ruang Pertanyaan" },
+        // { href: "/tim", label: "Tentang Tim" },
+        // { href: "/fase-kerja", label: "Fase Kerja" },
+        // { href: "/lingkup-kerja", label: "Lingkup Pekerjaan" },
+        // { href: "/ruang-pertanyaan", label: "Ruang Pertanyaan" },
     ];
 
     return (
