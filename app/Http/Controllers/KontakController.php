@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Profil;
+use App\Models\Kontak;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
-class ProfilController extends Controller
+class KontakController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return Inertia::render('Admin/Profil/Index', [
-            'title' => 'Profil',
-            'profil' => Profil::first(),
+        return Inertia::render('Admin/Kontak/Index', [
+            'title' => 'Kontak',
+            'kontak' => Kontak::first(),
         ]);
     }
 
@@ -38,7 +38,7 @@ class ProfilController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Profil $profil)
+    public function show(Kontak $kontak)
     {
         //
     }
@@ -46,36 +46,32 @@ class ProfilController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Profil $profil)
+    public function edit(Kontak $kontak)
     {
-        //
+        return Inertia::render('Admin/Kontak/Edit', [
+            'title' => 'Edit',
+            'kontak' => $kontak,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Profil $profil)
+    public function update(Request $request, Kontak $kontak)
     {
-        $profil->update([
-            'namaPerusahaan' => $request->namaPerusahaan,
+        $kontak->update([
             'email' => $request->email,
             'noHp' => $request->noHp,
             'alamat' => $request->alamat,
             'maps' => $request->maps,
-            'linkInstagram' => $request->linkInstagram,
-            'linkTwitter' => $request->linkTwitter,
-            'linkFacebook' => $request->linkFacebook,
-            'logoImgName' => $request->logoImgName ?? '',
-            'logoImgUrl' => $request->logoImgUrl ?? '',
         ]);
-
-        return response()->json(['data' => 'Berhasil diubah']);
+        return response()->json($kontak);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Profil $profil)
+    public function destroy(Kontak $kontak)
     {
         //
     }

@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('layanans', function (Blueprint $table) {
             $table->id();
+            $table->string('namaLayanan');
+            $table->text('deskripsi');
+            $table->integer('hrgTerrendah');
+            $table->integer('hrgTertinggi');
+            $table->string('imgName')->nullable();
+            $table->string('imgUrl')->nullable();
+            $table->string('videoName')->nullable();
+            $table->string('videoUrl')->nullable();
             $table->timestamps();
         });
     }

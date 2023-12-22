@@ -13,6 +13,17 @@ return new class extends Migration
     {
         Schema::create('profils', function (Blueprint $table) {
             $table->id();
+            $table->string('namaPerusahaan');
+            $table->text('deskripsiPerusahaan');
+            $table->text('alamat');
+            $table->text('maps');
+            $table->string('email');
+            $table->string('noHp'); //wa
+            $table->string('linkInstagram')->nullable();
+            $table->string('linkTwitter')->nullable();
+            $table->string('linkFacebook')->nullable();
+            $table->string('logoImgName')->nullable();
+            $table->string('logoImgUrl')->nullable();
             $table->timestamps();
         });
     }
