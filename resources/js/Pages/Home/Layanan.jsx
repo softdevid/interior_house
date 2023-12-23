@@ -28,41 +28,41 @@ const Layanan = ({ title }) => {
                         >
                             <li>
                                 <Link
-                                    href="/misi"
+                                    href="/interior-design"
                                     className={
-                                        url === "/misi"
+                                        url === "/interior-design"
                                             ? "active text-white bg-blue-700 rounded block py-2 px-5 font-bold"
                                             : "text-black hover:text-white hover:bg-blue-700 block py-2 px-5 font-bold"
                                     }
                                     aria-current="page"
                                 >
-                                    Misi
+                                    Desain Interior
                                 </Link>
                             </li>
                             <li>
                                 <Link
-                                    href="/tim"
+                                    href="/interior-styling"
                                     className={
-                                        url === "/tim"
+                                        url === "/interior-styling"
                                             ? "active text-white bg-blue-700 rounded block py-2 px-5 font-bold"
                                             : "text-black hover:text-white hover:bg-blue-700 block py-2 px-5 font-bold"
                                     }
                                     aria-current="page"
                                 >
-                                    Tim
+                                    Gaya Interior
                                 </Link>
                             </li>
                             <li>
                                 <Link
-                                    href="/kontak-saya"
+                                    href="/3d-visualization"
                                     className={
-                                        url === "/kontak-saya"
+                                        url === "/3d-visualization"
                                             ? "active text-white bg-blue-700 rounded block py-2 px-5 font-bold"
                                             : "text-black hover:text-white hover:bg-blue-700 block py-2 px-5 font-bold"
                                     }
                                     aria-current="page"
                                 >
-                                    Hubungi Saya
+                                    Visual 3D
                                 </Link>
                             </li>
                         </ul>
