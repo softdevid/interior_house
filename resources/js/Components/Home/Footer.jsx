@@ -18,7 +18,7 @@ export default function Footer() {
                                     alt="FlowBite Logo"
                                 />
                                 <span className="self-center text-2xl font-semibold whitespace-nowrap ">
-                                    Flowbite
+                                    Interior House
                                 </span>
                             </Link>
                         </div>

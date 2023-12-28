@@ -41,9 +41,9 @@ Route::get('/dashboard', function () {
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/layanan', [HomeController::class, 'layanan']);
-Route::prefix('/tentang')->group(function () {
-    Route::get('/profil', [HomeController::class, "tentang_profil"]);
-});
+Route::get('/profil', [HomeController::class, "tentang_kami"]);
+// Route::prefix('/tentang')->group(function () {
+// });
 
 // Route::get('/admin/dashboard', [AdminController::class, 'index']);
 Route::group([
