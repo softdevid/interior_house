@@ -37,34 +37,34 @@ const Index = ({ title }) => {
     return (
         <>
             <Head title={title} />
-            <div className="container mx-auto my-4">
-                <div className="relative group h-56 overflow-hidden rounded-lg md:h-96 mx-4 my-4 md:mx-auto md:my-auto">
-                    <div
-                        style={{
-                            backgroundImage: `url(${slides[currentIndex].url})`,
-                        }}
-                        className="w-full h-full rounded-2xl bg-center bg-cover duration-500"
-                    ></div>
-                    {/* Left Arrow */}
-                    <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
-                        <BsChevronCompactLeft onClick={prevSlide} size={30} />
-                    </div>
-                    {/* Right Arrow */}
-                    <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
-                        <BsChevronCompactRight onClick={nextSlide} size={30} />
-                    </div>
-                    <div className="flex top-4 justify-center py-2">
-                        {slides.map((slide, slideIndex) => (
-                            <div
-                                key={slideIndex}
-                                onClick={() => goToSlide(slideIndex)}
-                                className="text-2xl cursor-pointer"
-                            >
-                                <RxDotFilled />
-                            </div>
-                        ))}
-                    </div>
+            <div className="relative group h-56 overflow-hidden md:h-[550px] mx-4 my-4 md:mx-auto md:my-auto">
+                <div
+                    style={{
+                        backgroundImage: `url(${slides[currentIndex].url})`,
+                    }}
+                    className="w-full h-full bg-center bg-cover duration-500"
+                ></div>
+                {/* Left Arrow */}
+                <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
+                    <BsChevronCompactLeft onClick={prevSlide} size={30} />
                 </div>
+                {/* Right Arrow */}
+                <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
+                    <BsChevronCompactRight onClick={nextSlide} size={30} />
+                </div>
+                <div className="flex top-4 justify-center py-2">
+                    {slides.map((slide, slideIndex) => (
+                        <div
+                            key={slideIndex}
+                            onClick={() => goToSlide(slideIndex)}
+                            className="text-2xl cursor-pointer"
+                        >
+                            <RxDotFilled />
+                        </div>
+                    ))}
+                </div>
+            </div>
+            <div className="container mx-auto my-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 mx-4 sm:mx-10 mb-4">
                     {/* <div
                         className="flex justify-center items-center"
