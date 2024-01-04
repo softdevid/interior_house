@@ -3,15 +3,16 @@ import { Head, Link, router } from "@inertiajs/react";
 import axios from "axios";
 import { useState } from "react";
 
-const Add = ({ title }) => {
+const Edit = ({ title, layanan, gambar }) => {
+    // console.log(layanan, gambar)
 
     const [values, setValues] = useState({
-        namaLayanan: "",
-        hrgTerrendah: "",
-        hrgTertinggi: "",
-        deskripsi: "",
-        videoName: "",
-        videoUrl: "",
+        namaLayanan: layanan.namaLayanan,
+        hrgTerrendah: layanan.hrgTerrendah,
+        hrgTertinggi: layanan.hrgTertinggi,
+        deskripsi: layanan.deskripsi,
+        videoName: layanan.videoName,
+        videoUrl: layanan.videoUrl,
         // imgName: "",
         // imgUrl: "",
     })
@@ -25,7 +26,7 @@ const Add = ({ title }) => {
         }))
     }
 
-    console.log(values)
+    // console.log(values)
 
     function submit() {
         // axios.post('/admin/layanan', values)
@@ -35,7 +36,13 @@ const Add = ({ title }) => {
     }
 
     //gambar utama
-    const [image, setImage] = useState([]);
+    const [image, setImage] = useState(gambar.map((data) => {
+        return {
+            imgName: data.imgName,
+            imgUrl: data.imgUrl
+        }
+    }));
+
     console.log(image)
     const uploadImageUtama = () => {
         var myWidget = window.cloudinary.createUploadWidget({
@@ -47,11 +54,12 @@ const Add = ({ title }) => {
         }, (error, result) => {
             if (!error && result && result.event === "success") {
                 console.log('Done! Here is the image info: ', result.info);
-                setImage((prev) => [...prev, ({ url: result.info.url, public_id: result.info.public_id })]);
-                // const newOptions = {...values};
+                // setImage((prev) => [...prev, ({ url: result.info.url, public_id: result.info.public_id })]);
+                // const newOptions = { ...values };
                 // newOptions.imgUrl = result.info.url;
                 // newOptions.imgName = result.info.public_id;
                 // setValues(newOptions);
+                setImage([...image, { imgUrl: result.info.url, imgName: result.info.public_id }]);
             }
         }
         )
@@ -79,6 +87,11 @@ const Add = ({ title }) => {
         myWidget.open();
     }
 
+    //belum jadi
+    const removeForm = ({ index, image }) => {
+        setImage(image.filter((_, i) => i !== index));
+    };
+
 
     return (
         <>
@@ -90,15 +103,15 @@ const Add = ({ title }) => {
             <div className="grid grid-cols-3 gap-4">
                 <div>
                     <label>Nama Layanan</label>
-                    <input onChange={handleChange} name="namaLayanan" className="p-2 rounded-md block w-full" />
+                    <input onChange={handleChange} value={values.namaLayanan} name="namaLayanan" className="p-2 rounded-md block w-full" />
                 </div>
                 <div>
                     <label>Harga Terrendah</label>
-                    <input onChange={handleChange} name="hrgTerrendah" type="number" min={0} className="p-2 rounded-md block w-full" />
+                    <input onChange={handleChange} value={values.hrgTerrendah} name="hrgTerrendah" type="number" min={0} className="p-2 rounded-md block w-full" />
                 </div>
                 <div>
                     <label>Harga Tertinggi</label>
-                    <input onChange={handleChange} name="hrgTertinggi" type="number" min={0} className="p-2 rounded-md block w-full" />
+                    <input onChange={handleChange} value={values.hrgTertinggi} name="hrgTertinggi" type="number" min={0} className="p-2 rounded-md block w-full" />
                 </div>
                 <div>
                     <label>Upload Gambar</label>
@@ -111,7 +124,7 @@ const Add = ({ title }) => {
                     {image.length > 0 &&
                         <div className="grid grid-cols-4 gap-4">
                             {image.map((data, i) => (
-                                <img src={data.url} className="w-20 h-20" />
+                                <img src={data.imgUrl} className="w-20 h-auto" />
                             ))}
                         </div>}
                 </div>
@@ -128,12 +141,12 @@ const Add = ({ title }) => {
             </div>
             <div>
                 <label>Deskripsi</label>
-                <textarea onChange={handleChange} name="deskripsi" className="w-full rounded-md" rows={10} />
+                <textarea onChange={handleChange} value={values.deskripsi} name="deskripsi" className="w-full rounded-md" rows={10} />
             </div>
             <button onClick={submit} className="p-2 bg-blue-500 hover:bg-blue-600 text-white rounded-md">simpan</button>
         </>
     )
 }
 
-Add.layout = (page) => <Main children={page} />
-export default Add;
+Edit.layout = (page) => <Main children={page} />
+export default Edit;

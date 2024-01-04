@@ -38,16 +38,6 @@ const Sidebar = () => {
             icon: ListBulletIcon,
         },
         {
-            name: "Kontak",
-            href: `/admin/kontak`,
-            icon: PhoneIcon,
-        },
-        {
-            name: "Sosial Media",
-            href: `/admin/sosmed`,
-            icon: VideoCameraIcon,
-        },
-        {
             name: "Banner slider",
             href: `/admin/banner`,
             icon: PhotoIcon,

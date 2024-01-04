@@ -4,7 +4,7 @@ import axios from "axios";
 import { useState } from "react";
 
 const Index = ({ title, layanan }) => {
-
+    console.log(layanan)
     const hapus = (id) => {
         console.log(id)
         // axios.delete(`/admin/layanan/${id}`)
@@ -52,7 +52,7 @@ const Index = ({ title, layanan }) => {
                                             {i + 1}
                                         </th>
                                         <td class="px-6 py-4">
-                                            <img src={data.imgUrl} alt={data.namaLayanan} className="w-14 h-14" />
+                                            <img src={data.gambar[0] ? data.gambar[0].imgUrl : '-'} alt={data.namaLayanan} className="w-14 h-auto" />
                                         </td>
                                         <td class="px-6 py-4">
                                             {data.namaLayanan}
@@ -61,7 +61,7 @@ const Index = ({ title, layanan }) => {
                                             {data.hrgTerrendah} - {data.hrgTertinggi}
                                         </td>
                                         <td class="px-6 py-4 text-right">
-                                            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                            <Link href={`/admin/layanan/${data.id}/edit`} class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</Link>
                                             <button onClick={() => hapus(data.id)} class="font-medium text-red-600 dark:text-red-500 hover:underline ml-1">Hapus</button>
                                         </td>
                                     </tr>

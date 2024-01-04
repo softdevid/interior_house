@@ -42,7 +42,7 @@ const Edit = ({ kontak }) => {
                 <label>Alamat</label>
                 <textarea name="alamat" onChange={handleChange} value={values.alamat} className="block w-[70%]" />
             </div>
-            <button className="p-2 bg-blue-500 hover:bg-blue text-white" onClick={submit}>Simpan</button>
+            <button className="p-2 bg-blue-500 hover:bg-blue-600 text-white" onClick={submit}>Simpan</button>
         </>
     )
 }

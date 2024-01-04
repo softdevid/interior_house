@@ -1,5 +1,6 @@
 import Main from "@/Layouts/Admin/Main";
 import { router } from "@inertiajs/react";
+import axios from "axios";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
@@ -33,6 +34,27 @@ const Index = ({profil}) => {
         }))
     }
 
+    const uploadLogo = () => {
+        var myWidget = window.cloudinary.createUploadWidget({
+          cloudName: 'dodb6pecp',
+          sources: ['local', 'camera', 'unsplash'],
+          uploadPreset: 'h7dk2ojx',
+          maxFiles: 1,
+          folder: 'logo'
+        }, (error, result) => {
+          if (!error && result && result.event === "success") {
+            // console.log('Done! Here is the image info: ', result.info);
+            // setImage((prev) => [...prev, ({ url: result.info.url, public_id: result.info.public_id })]);
+            const newOptions = {...values};
+            newOptions.logoImgUrl = result.info.url;
+            newOptions.logoImgName = result.info.public_id;
+            setValues(newOptions);
+          }
+        }
+        )
+        myWidget.open();
+      }
+
     function submit() {
         // console.log(values)
         axios.patch(`/admin/profil/${profil.id}`, values)
@@ -44,10 +66,9 @@ const Index = ({profil}) => {
           })
           .catch((err) => setErrors(err.response.data.errors));
     }
+    console.log(values.logoImgUrl)
     return (
         <>
-        {/* {}
-        <div className="w-full p-4 bg-green-500"></div> */}
             <div className="grid md:grid-cols-2 gap-4">
             <div className="my-2">
                 <label>Nama Perusahaan</label>
@@ -67,6 +88,10 @@ const Index = ({profil}) => {
                 <label>Embed Google Maps</label>
                 <input name="maps" onChange={handleChange} value={values.maps} className="block w-full rounded-md" />
             </div>
+            <div className="my-2">
+                <label>Logo (tidak wajib)</label>
+                {values.logoImgName ? <img src={`https://res.cloudinary.com/dodb6pecp/image/upload/ar_0.5,c_fill,g_auto,w_433/q_auto/f_auto/${values.logoImgName}`} className="w-20 h-20" /> : <button name="logo" onClick={uploadLogo} className="block w-[70%] rounded-md border-2">Upload Logo</button>}
+            </div>
             </div>
             <div className="my-2">
                 <label>Alamat</label>
@@ -74,7 +99,7 @@ const Index = ({profil}) => {
             </div>
             <div className="my-2">
                 <label>Deskripsi (kalau bisa dijadikan 2 paragraf)</label>
-                <textarea name="deskripsiPerusahaan" onChange={handleChange} value={values.deskripsiPerusahaan} className="block w-full rounded-md" />
+                <textarea name="deskripsiPerusahaan" onChange={handleChange} value={values.deskripsiPerusahaan} rows={12} className="block w-full rounded-md" />
             </div>
 
             <h1 className="text-xl mt-3">SOSMED</h1>
